@@ -13,12 +13,13 @@ public class ProductRepositoryImpl implements ProductRepository {
 
 	@Override
 	public Uni<List<Product>> getProducts() {
-		return listAll();
+		return findAll().list();
 	}
 
 	@Override
 	public Uni<List<Product>> getProductsByCategory(String category) {
-		return find("category", category).list();
+		return find("category", category)
+				.list();
 	}
 
 	@Override
@@ -26,4 +27,8 @@ public class ProductRepositoryImpl implements ProductRepository {
 		return findById(new ObjectId(id));
 	}
 
+	@Override
+	public Uni<Boolean> deleteById(String id) {
+		return deleteById(new ObjectId(id));
+	}
 }

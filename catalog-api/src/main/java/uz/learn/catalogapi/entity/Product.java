@@ -1,24 +1,19 @@
 package uz.learn.catalogapi.entity;
 
-import org.bson.types.ObjectId;
-
 import io.quarkus.mongodb.panache.common.MongoEntity;
-import io.quarkus.mongodb.panache.reactive.ReactivePanacheMongoEntityBase;
+import io.quarkus.mongodb.panache.reactive.ReactivePanacheMongoEntity;
 
 @MongoEntity(database = "catalogDb",
 collection = "Products")
-public class Product extends ReactivePanacheMongoEntityBase{
-    private ObjectId id;
+public class Product extends ReactivePanacheMongoEntity{
     private String name;
     private String category;
     private String summary;
     private String description;
     private String imageFile;
     private Double price;
-	public ObjectId getId() {
-		return id;
-	}
-	public String getName() {
+	
+    public String getName() {
 		return name;
 	}
 	public String getCategory() {
@@ -35,9 +30,6 @@ public class Product extends ReactivePanacheMongoEntityBase{
 	}
 	public Double getPrice() {
 		return price;
-	}
-	public void setId(ObjectId id) {
-		this.id = id;
 	}
 	public void setName(String name) {
 		this.name = name;
