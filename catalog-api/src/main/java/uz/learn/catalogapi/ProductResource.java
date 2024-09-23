@@ -2,7 +2,6 @@ package uz.learn.catalogapi;
 
 import java.util.List;
 
-import io.quarkus.mongodb.panache.common.reactive.ReactivePanacheUpdate;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
