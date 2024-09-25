@@ -1,5 +1,18 @@
-version: '3.4'
-
 services:
     catalogdb:
         image: mongo
+
+    basketdb:
+        image: redis
+
+    orderdb:
+        image: mcr.microsoft.com/mssql/server
+        command: /bin/bash ./entrypoint.sh
+        volumes:
+            - ${WEBAPP_STORAGE_HOME}/orderdbdata:/var/opt/orderdb/data
+            - ./databases/orderdb/docker-entrypoint.sh:/entrypoint.sh
+            - ./databases/orderdb/docker-db-init.sh:/db-init.sh
+            - ./databases/orderdb/order-db-init.sh:/order-db-init.sh
+
+    rabbitmq:
+        image: rabbitmq:4-management-alpine

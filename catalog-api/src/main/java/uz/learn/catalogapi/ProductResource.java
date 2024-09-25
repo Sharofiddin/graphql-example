@@ -49,7 +49,6 @@ public class ProductResource {
 	   return repo.update(product)
 			   .onItem()
 			   .transform(item-> Response.ok(Boolean.TRUE).build());
-	   
    }
    
    @DELETE
