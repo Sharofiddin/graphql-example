@@ -7,12 +7,12 @@ services:
 
     orderdb:
         image: mcr.microsoft.com/mssql/server
-        command: /bin/bash ./entrypoint.sh
+        command: /bin/bash ./opt/entrypoint.sh
         volumes:
             - ${WEBAPP_STORAGE_HOME}/orderdbdata:/var/opt/orderdb/data
-            - ./databases/orderdb/docker-entrypoint.sh:/entrypoint.sh
-            - ./databases/orderdb/docker-db-init.sh:/db-init.sh
-            - ./databases/orderdb/order-db-init.sh:/order-db-init.sh
+            - ./databases/orderdb/docker-entrypoint.sh:/opt/entrypoint.sh
+            - ./databases/orderdb/docker-db-init.sh:/opt/db-init.sh
+            - ./databases/orderdb/order-db-init.sql:/opt/order-db-init.sql
 
     rabbitmq:
         image: rabbitmq:4-management-alpine

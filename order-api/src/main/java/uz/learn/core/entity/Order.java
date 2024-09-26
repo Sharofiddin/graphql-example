@@ -7,9 +7,11 @@ import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import io.smallrye.mutiny.Uni;
 import jakarta.persistence.Cacheable;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Cacheable
+@Table(name = "orders",schema = "dbo")
 public class Order extends PanacheEntity {
 	public String userName;
 	public BigDecimal totalPrice;
