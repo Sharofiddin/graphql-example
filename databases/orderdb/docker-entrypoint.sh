@@ -1,1 +1,2 @@
- /db-init.sh & /opt/mssql/bin/sqlservr
+chmod +x /db-init.sh 
+/db-init.sh & /opt/mssql/bin/sqlservr
